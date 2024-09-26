@@ -30,7 +30,9 @@ public class FlightController {
 			@RequestParam("departureDate") @DateTimeFormat(pattern = "MM-dd-yyyy") Date departureDate,
 			ModelMap modelMap) {
 		List<Flight> flights = repository.findFlights(from, to, departureDate);
+		System.out.println(flights.size());
 		modelMap.addAttribute("flights", flights);
 		return "displayFlights";
 	}
+
 }
